@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# Virtual Environment
+.venv/
+env/
+venv/
+ENV/
+
+# Byte-compiled / cache
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Environment / Config
+.env
+.env.*
+!.env.example
+
+# Alembic / Migrations
+alembic/versions/__pycache__/
+alembic/versions/*.pyc
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VS Code / IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Logs / Temp files
+*.log
+logs/
+tmp/
+*.tmp
+
+# Coverage / Testing
+.coverage
+htmlcov/
+pytest_cache/
+.cache/
+
+# Miscellaneous
+*.bak
+*.swp
