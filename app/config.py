@@ -37,14 +37,6 @@ class DevelopmentSettings(GlobalSettings):
 
 class ProductionSettings(GlobalSettings):
 
-    # AWS_ACCESS_KEY: str = os.environ.get("AWS_ACCESS_KEY")
-
-    # AWS_SECRET_KEY: str = os.environ.get("AWS_SECRET_KEY")
-
-    # AWS_REGION: str = os.environ.get("AWS_REGION")
-
-    # S3_BUCKET: str = os.environ.get("S3_BUCKET")
-
     APP_BASE_URL: str = os.environ.get("APP_BASE_URL", "https://api.transaction.com")
 
 
