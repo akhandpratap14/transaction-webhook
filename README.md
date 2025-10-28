@@ -1,3 +1,48 @@
+## 1. Create a `.env` File
+
+Create a `.env` file in the project root and add the following content:
+
+```env
+DB_USER=****
+DB_PASSWORD=*****
+DB_HOST=db
+DB_PORT=5432
+DB_NAME=transaction_webhook
+DB_SCHEMA=transaction_webhook
+database_url=postgresql+asyncpg://glosys:apple@db:5432/transaction_webhook
+```
+
+## 2. Install Dependencies
+
+Run the following command to install required packages:
+
+```sh
+pip install -r requirements.txt
+```
+
+## 3. Setup the Database
+
+Ensure PostgreSQL is running, then create the database:
+
+```sh
+psql -U user-name -c "CREATE DATABASE transaction_webhook;"
+```
+
+Run migrations using Alembic:
+
+```sh
+alembic upgrade head
+```
+
+The server will be available at `http://127.0.0.1:8000`
+
+## 5. API Documentation
+
+Access the interactive API docs at:
+
+- Swagger UI: `http://127.0.0.1:8000/docs`
+
+
 # 🧾 Transaction Webhook Service
 
 A lightweight, production-ready **FastAPI** service designed to handle **financial transaction webhooks** efficiently and idempotently.  
