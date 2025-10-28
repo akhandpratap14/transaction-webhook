@@ -9,7 +9,7 @@ services:
       pip install --upgrade pip
       pip install -r requirements.txt
     startCommand: gunicorn app.main:app -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:10000
-    healthCheckPath: /healthz
+    healthCheckPath: /
     envVars:
       - key: DB_USER
         value: transaction_webhook_user
