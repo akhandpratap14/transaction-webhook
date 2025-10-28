@@ -14,7 +14,7 @@ services:
       - key: DB_USER
         value: transaction_webhook_user
       - key: DB_PASSWORD
-        value: your_render_password_here
+        sync: false
       - key: DB_HOST
         value: dpg-d408nlp5pdvs73fotp70-a
       - key: DB_PORT
@@ -24,7 +24,7 @@ services:
       - key: DB_SCHEMA
         value: public
       - key: DATABASE_URL
-        value: postgresql+asyncpg://transaction_webhook_user:your_render_password_here@dpg-d408nlp5pdvs73fotp70-a:5432/transaction_webhook
+        sync: false
       - key: ENV
         value: production
     autoDeploy: true
