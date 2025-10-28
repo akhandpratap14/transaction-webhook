@@ -1,21 +1,30 @@
+# render.yaml
 services:
   - type: web
-    name: transaction-webhook
+    name: transaction-webhook-api
     env: python
+    region: singapore
     plan: free
-    region: oregon
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 10000
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: gunicorn app.main:app -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:10000
+    healthCheckPath: /healthz
     envVars:
       - key: DB_USER
-        sync: false
+        value: transaction_webhook_user
       - key: DB_PASSWORD
-        sync: false
+        value: your_render_password_here
       - key: DB_HOST
-        sync: false
+        value: dpg-d408nlp5pdvs73fotp70-a
       - key: DB_PORT
         value: 5432
       - key: DB_NAME
-        sync: false
-      - key: DB_SCHEMA
         value: transaction_webhook
+      - key: DB_SCHEMA
+        value: public
+      - key: DATABASE_URL
+        value: postgresql+asyncpg://transaction_webhook_user:your_render_password_here@dpg-d408nlp5pdvs73fotp70-a:5432/transaction_webhook
+      - key: ENV
+        value: production
+    autoDeploy: true
