@@ -8,7 +8,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-webhook_router = APIRouter(prefix="/v1/webhooks", tags=["Webhooks"])
+webhook_router = APIRouter(prefix="/v1", tags=["Webhooks"])
 
 
 @webhook_router.get("/", tags=["Health"])
@@ -17,7 +17,7 @@ async def health_check():
 
 
 @webhook_router.post(
-    "/transactions",
+    "/webhooks/transactions",
     status_code=status.HTTP_202_ACCEPTED,
     summary="Receive transaction webhook",
 )
